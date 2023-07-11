@@ -13,6 +13,8 @@ ALTER TABLE animals ADD species CHAR(100);
 
 ALTER TABLE animals ADD PRIMARY KEY (id);
 
+ALTER TABLE animals DROP COLUMN species;
+
 CREATE TABLE owners(
 id integer NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 full_name CHAR(50),
