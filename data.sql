@@ -20,3 +20,8 @@ INSERT INTO owners (full_name,age) VALUES ('Sam Smith', 34),('Jennifer Orwell',1
 /* species table data*/
 
 INSERT INTO species (name) VALUES ('pokemon'),('digimon');
+
+/* modify animals table*/
+
+UPDATE animals SET species_id = ( select id FROM species where name = 'digimon') where name like '%mon%';
+UPDATE animals SET species_id = ( select id FROM species where name = 'pokemon') where species_id is null;
