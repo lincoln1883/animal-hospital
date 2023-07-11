@@ -60,9 +60,10 @@ GROUP BY species;
 
 /* query tables using joins*/
 
-SELECT a.name as animal_name
+SELECT a.name AS animal_name, s.name AS animal_type
 FROM animals AS a
-JOIN owners AS o ON a.owner_id = o.id
+JOIN species AS s ON a.species_id = s.id
+JOIN owners AS o ON a.owner_id = o.id 
 WHERE o.full_name = 'Melody Pond';
 
 
