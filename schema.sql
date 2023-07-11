@@ -15,6 +15,10 @@ ALTER TABLE animals ADD PRIMARY KEY (id);
 
 ALTER TABLE animals DROP COLUMN species;
 
+ALTER TABLE animals ADD species_id integer REFERENCES species(id);
+
+ALTER TABLE animals ADD owner_id integer REFERENCES owners(id);
+
 CREATE TABLE owners(
 id integer NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 full_name CHAR(50),
