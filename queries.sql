@@ -85,3 +85,16 @@ FROM animals AS a
 join owners  AS o on a.owner_id = o.id
 JOIN species AS s ON a.species_id = s.id
 where o.full_name = 'Jennifer Orwell' and s.name = 'digimon';
+
+/* animals that havent tried to escape count*/
+
+SELECT COUNT(*) AS animal_count
+FROM animals AS a
+JOIN owners AS o ON a.owner_id = o.id
+WHERE o.full_name = 'Dean Winchester' AND a.escape_attempts = 0;
+
+/* animals that have tried to escape list*/
+SELECT a.name AS animal_name
+FROM animals AS a
+JOIN owners AS o ON a.owner_id = o.id
+WHERE o.full_name = 'Dean Winchester' AND a.escape_attempts < 1;
