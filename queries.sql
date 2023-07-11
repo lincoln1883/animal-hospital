@@ -70,3 +70,7 @@ SELECT a.name AS animal_name
 FROM animals AS a
 JOIN species AS s ON a.species_id = s.id
 WHERE s.name = 'pokemon';
+
+SELECT o.full_name AS owner_name, COALESCE(a.name, 'No animal') AS animal_name
+FROM owners AS o
+LEFT JOIN animals AS a ON o.id = a.owner_id;
