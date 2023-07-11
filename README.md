@@ -56,6 +56,8 @@
 - [ ] **[Inserting data into the table]**
 - [ ] **[Querying the table for specific data]**
 - [ ] **[query and update animals table]**
+- [ ] **[query multiple tables]**
+- [ ] **[add "join table" for visits]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -140,8 +142,7 @@ To run the project, execute the following command:
 ## 🔭 Future Features <a name="future-features"></a>
 
 
-- [ ] **[query multiple tables]**
-- [ ] **[add "join table" for visits]**
+
 - [ ] **[database performance audit]**
 - [ ] **[add database schema diagram]**
 
