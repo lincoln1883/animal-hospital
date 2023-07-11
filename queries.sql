@@ -79,3 +79,9 @@ SELECT s.name AS species_name, COUNT(*) AS animal_count
 FROM animals AS a
 JOIN species AS s ON a.species_id = s.id
 GROUP BY s.name;
+
+SELECT a.name AS digimon_name
+FROM animals AS a
+join owners  AS o on a.owner_id = o.id
+JOIN species AS s ON a.species_id = s.id
+where o.full_name = 'Jennifer Orwell' and s.name = 'digimon';
