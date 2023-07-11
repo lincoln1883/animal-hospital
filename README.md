@@ -52,9 +52,10 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Schema to create a database table]**
-- **[Inserting data into the table]**
-- **[Querying the table for specific data]**
+- [ ] **[Schema to create a database table]**
+- [ ] **[Inserting data into the table]**
+- [ ] **[Querying the table for specific data]**
+- [ ] **[query and update animals table]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -138,7 +139,7 @@ To run the project, execute the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[query and update animals table]**
+
 - [ ] **[query multiple tables]**
 - [ ] **[add "join table" for visits]**
 - [ ] **[database performance audit]**
