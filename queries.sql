@@ -57,3 +57,52 @@ SELECT species, AVG(escape_attempts) AS average_escape_attempts
 FROM animals
 WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31'
 GROUP BY species;
+
+/* query tables using joins*/
+
+SELECT a.name AS animal_name, s.name AS animal_type
+FROM animals AS a
+JOIN species AS s ON a.species_id = s.id
+JOIN owners AS o ON a.owner_id = o.id 
+WHERE o.full_name = 'Melody Pond';
+
+
+SELECT a.name AS animal_name, s.name AS animal_type
+FROM animals AS a
+JOIN species AS s ON a.species_id = s.id
+WHERE s.name = 'pokemon';
+
+SELECT o.full_name AS owner_name, COALESCE(a.name, 'No animal') AS animal_name
+FROM owners AS o
+LEFT JOIN animals AS a ON o.id = a.owner_id;
+
+SELECT s.name AS species_name, COUNT(*) AS animal_count
+FROM animals AS a
+JOIN species AS s ON a.species_id = s.id
+GROUP BY s.name;
+
+SELECT a.name AS digimon_name
+FROM animals AS a
+join owners  AS o on a.owner_id = o.id
+JOIN species AS s ON a.species_id = s.id
+where o.full_name = 'Jennifer Orwell' and s.name = 'digimon';
+
+/* animals that havent tried to escape count*/
+
+SELECT COUNT(*) AS animal_count
+FROM animals AS a
+JOIN owners AS o ON a.owner_id = o.id
+WHERE o.full_name = 'Dean Winchester' AND a.escape_attempts = 0;
+
+/* animals that have tried to escape list*/
+SELECT a.name AS animal_name
+FROM animals AS a
+JOIN owners AS o ON a.owner_id = o.id
+WHERE o.full_name = 'Dean Winchester' AND a.escape_attempts < 1;
+
+/* who owns most animals*/
+
+SELECT o.full_name AS owner_name, COUNT(a.id) AS animal_count
+FROM animals AS a
+JOIN owners AS o ON a.owner_id = o.id
+GROUP BY o.full_name;
