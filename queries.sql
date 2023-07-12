@@ -166,3 +166,13 @@ JOIN vets v ON av.vet_id = v.id
 JOIN animals a ON av.animal_id = a.id
 ORDER BY av.date_of_visit DESC
 LIMIT 1;
+
+/* how many visits were to a none specialist*/
+
+SELECT COUNT(*) AS num_visits
+FROM visits AS av
+JOIN specializations s ON av.animal_id = s.species_id AND av.vet_id = s.vet_id
+WHERE NOT EXISTS (
+	SELECT * FROM specializations s2
+	WHERE s2.species_id = av.animal_id AND s2.vet_id = av.vet_id
+);
