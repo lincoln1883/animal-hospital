@@ -129,3 +129,12 @@ FROM vets AS v
 LEFT JOIN specializations AS sp ON v.id = sp.vet_id
 LEFT JOIN species AS s2 ON sp.species_id = s2.id
 ORDER BY v.name;
+
+/* list the animals who visited stephanie mendez*/
+
+SELECT a2.name AS animal_name, v2.date_of_visit AS visit_date
+FROM visits v2
+JOIN vets v3 ON v2.vet_id = v3.id
+JOIN animals a2 ON v2.animal_id = a2.id
+WHERE v3.name = 'Stephanie Mendez';
+AND v2.date_of_visit BETWEEN '2020-04-01' AND '2020-08-30';
