@@ -37,3 +37,24 @@ UPDATE animals SET owner_id = ( SELECT id FROM owners WHERE full_name = 'Dean Wi
 /* insert data for vets*/
 
 INSERT INTO vets (name,age,date_of_graduation) VALUES ('William Tatcher', 45,'2000-04-23'),('Maisy Smith', 26, '2019-01-17'),('Stephanie Mendez', 64, '1981-05-04'),('Jack Harkness', 38, '2008-06-08');
+
+/* insert data for visits*/
+
+with inputvalues (animal,vet,date_of_visit) AS (
+VALUES
+('Agumon','William Tatcher','2020-05-24'),('Agumon','Stephanie Mendez','2020-07-22'),
+('Gabumon','Jack Harkness','2021-02-02'),('Pikachu','Maisy Smith','2020-01-05'),
+('Pikachu','Maisy Smith','2020-03-08'),('Pikachu','Maisy Smith','2020-05-14'),
+('Devimon','Stephanie Mendez','2021-05-04'),('Charmander','Jack Harkness','2021-02-24'),
+('Plantmon','Maisy Smith','2019-12-21'),('Plantmon','William Tatcher','2020-08-10'),
+('Plantmon','Maisy Smith','2021-04-07'),('Squirtle','Stephanie Mendez','2019-09-29'),
+('Angemon','Jack Harkness','2020-10-03'),('Angemon','Jack Harkness','2020-11-04'),
+('Boarmon','Maisy Smith','2019-01-24'),('Boarmon','Maisy Smith','2019-05-15'),
+('Boarmon','Maisy Smith','2020-02-27'),('Boarmon','Maisy Smith','2020-08-03'),
+('Blossom','Stephanie Mendez','2020-05-24'),('Blossom','William Tatcher','2021-01-1')
+)
+INSERT INTO visits (animals_id,vets_id,date_of_visit)
+SELECT DISTINCT ON (a.id,v.id) a.id, v.id, to_date(d.date_of_visit::text,'YYYY-MM-DD')
+FROM inputvalues AS d
+LEFT JOIN animals AS a ON a.name = d.animal
+LEFT JOIN vets AS v ON v.name = d.vet;
