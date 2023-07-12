@@ -121,3 +121,11 @@ FROM animals AS a
 JOIN visits AS v ON a.id  = v.animals_id 
 JOIN vets AS v2 ON v.vets_id  = v2.id 
 WHERE v2.name = 'Stephanie Mendez';
+
+/* list the vets and their specialities*/
+
+SELECT v.name AS vet_name, s2.name AS specialist_name, COALESCE(s2.name, 'No specialization') AS species_name
+FROM vets AS v
+LEFT JOIN specializations AS sp ON v.id = sp.vet_id
+LEFT JOIN species AS s2 ON sp.species_id = s2.id
+ORDER BY v.name;
