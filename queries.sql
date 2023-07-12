@@ -114,3 +114,10 @@ INNER JOIN vets AS v2 ON v.vet_id = v2.id
 WHERE v2.name = 'William Tatcher'
 ORDER BY v.visit_date DESC
 LIMIT 1;
+
+/* how many different animals visited stephanie mendez*/
+SELECT COUNT(DISTINCT a.name) AS animal_count
+FROM animals AS a
+JOIN visits AS v ON a.id  = v.animals_id 
+JOIN vets AS v2 ON v.vets_id  = v2.id 
+WHERE v2.name = 'Stephanie Mendez';
