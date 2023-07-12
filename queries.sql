@@ -169,10 +169,27 @@ LIMIT 1;
 
 /* how many visits were to a none specialist*/
 
-SELECT COUNT(*) AS num_visits
-FROM visits AS av
-JOIN specializations s ON av.animal_id = s.species_id AND av.vet_id = s.vet_id
-WHERE NOT EXISTS (
-	SELECT * FROM specializations s2
-	WHERE s2.species_id = av.animal_id AND s2.vet_id = av.vet_id
+SELECT COUNT(*) AS num_visits,ve.name as vet_name
+FROM visits v
+JOIN vets ve ON v.vets_id = ve.id
+JOIN animals a ON v.animals_id  = a.id
+LEFT JOIN specializations s ON ve.id = s.vets_id AND a.species_id = s.species_id
+WHERE s.vets_id IS null group by vet_name limit 1
+
+/* how many visits maisy smith had*/
+
+WITH maisy_visits AS (
+    SELECT av.animals_id , s.species_id,v.name as vet_name, COUNT(*) AS visit_count
+    FROM visits av
+    JOIN vets v ON av.vets_id = v.id
+    JOIN specializations s ON v.id = s.species_id
+    WHERE v.name = 'Maisy Smith'
+    GROUP BY av.animals_id, s.species_id,v.name
+)
+SELECT s.name AS specialty_name, mv.vet_name,visit_count
+FROM maisy_visits mv
+JOIN species s ON mv.species_id = s.id
+WHERE mv.visit_count = (
+    SELECT MAX(visit_count)
+    FROM maisy_visits
 );
