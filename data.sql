@@ -38,6 +38,21 @@ UPDATE animals SET owner_id = ( SELECT id FROM owners WHERE full_name = 'Dean Wi
 
 INSERT INTO vets (name,age,date_of_graduation) VALUES ('William Tatcher', 45,'2000-04-23'),('Maisy Smith', 26, '2019-01-17'),('Stephanie Mendez', 64, '1981-05-04'),('Jack Harkness', 38, '2008-06-08');
 
+/* insert data into specialization table*/
+
+with inputvalues(vets,species) as (
+VALUES
+('William Tatcher','pokemon'),
+('Stephanie Mendez','pokemon'),
+('Stephanie Mendez','digimon'),
+('Jack Harkness','digimon')
+)
+INSERT INTO specializations (vets_id,species_id)
+SELECT DISTINCT ON (v.id,s.id) v.id, s.id
+FROM inputvalues AS d
+LEFT JOIN vets AS v ON v.name = d.vets
+LEFT JOIN species AS s ON s.name = d.species;
+
 /* insert data for visits*/
 
 with inputvalues (animal,vet,date_of_visit) AS (
@@ -58,3 +73,4 @@ SELECT DISTINCT ON (a.id,v.id) a.id, v.id, to_date(d.date_of_visit::text,'YYYY-M
 FROM inputvalues AS d
 LEFT JOIN animals AS a ON a.name = d.animal
 LEFT JOIN vets AS v ON v.name = d.vet;
+
