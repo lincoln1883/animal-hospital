@@ -29,3 +29,10 @@ CREATE TABLE species(
 id integer NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 name CHAR(50),
 );
+
+CREATE TABLE vets (
+id integer NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+name CHAR(50),
+age integer,
+date_of_graduation date
+);
