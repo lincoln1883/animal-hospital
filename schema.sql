@@ -29,3 +29,27 @@ CREATE TABLE species(
 id integer NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 name CHAR(50),
 );
+
+CREATE TABLE vets (
+id integer NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+name CHAR(50),
+age integer,
+date_of_graduation date
+);
+
+CREATE TABLE specializations (
+species_id integer, 
+vets_id integer,
+PRIMARY KEY (species_id, vet_id),
+FOREIGN KEY (species_id) REFERENCES species(id) ,
+FOREIGN KEY (vets_id) REFERENCES vets(id),
+);
+
+CREATE TABLE visits (
+animals_id integer,
+vets_id integer,
+date_of_visit date,
+PRIMARY KEY (animals_id, vets_id),
+FOREIGN KEY (animals_id) REFERENCES animals(id),
+FOREIGN KEY (vets_id) REFERENCES vets(id)
+);
