@@ -56,3 +56,6 @@ PRIMARY KEY (animals_id, vets_id),
 FOREIGN KEY (animals_id) REFERENCES animals(id),
 FOREIGN KEY (vets_id) REFERENCES vets(id)
 );
+
+/*delete existing data to prevent duplicate errors*/
+DELETE FROM visits;
