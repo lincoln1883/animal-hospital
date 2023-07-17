@@ -74,3 +74,9 @@ FROM inputvalues AS d
 LEFT JOIN animals AS a ON a.name = d.animal
 LEFT JOIN vets AS v ON v.name = d.vet;
 
+/*insert more data into visits*/
+INSERT INTO visits (animals_id, vets_id, date_of_visit)
+SELECT DISTINCT ON (animals_id,vets_id) animals_id.id, vets_id.id, visit_timestamp
+FROM (SELECT id FROM animals) AS animals_id,
+(SELECT id FROM vets) AS vets_id,
+generate_series('1980-01-01'::timestamp, '2021-01-01', '4 hours') AS visit_timestamp;
