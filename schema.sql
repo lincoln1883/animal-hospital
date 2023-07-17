@@ -25,6 +25,9 @@ full_name CHAR(50),
 age integer,
 );
 
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
 CREATE TABLE species(
 id integer NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 name CHAR(50),
