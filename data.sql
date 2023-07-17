@@ -80,3 +80,5 @@ SELECT DISTINCT ON (animals_id,vets_id) animals_id.id, vets_id.id, visit_timesta
 FROM (SELECT id FROM animals) AS animals_id,
 (SELECT id FROM vets) AS vets_id,
 generate_series('1980-01-01'::timestamp, '2021-01-01', '4 hours') AS visit_timestamp;
+
+INSERT INTO owners (full_name, email) SELECT 'Owner ' || generate_series(1,2500000), 'owner_' || generate_series(1,2500000) || '@mail.com';
