@@ -48,14 +48,10 @@ FOREIGN KEY (species_id) REFERENCES species(id) ,
 FOREIGN KEY (vets_id) REFERENCES vets(id),
 );
 
-CREATE TABLE visits (
-animals_id integer,
-vets_id integer,
-date_of_visit date,
-PRIMARY KEY (animals_id, vets_id),
-FOREIGN KEY (animals_id) REFERENCES animals(id),
-FOREIGN KEY (vets_id) REFERENCES vets(id)
+CREATE TABLE visits(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  animals_id INT REFERENCES animals(id),
+  vets_id INT REFERENCES vets(id),
+  date_of_visit DATE,
+  PRIMARY KEY(id)
 );
-
-/*delete existing data to prevent duplicate errors*/
-DELETE FROM visits;
