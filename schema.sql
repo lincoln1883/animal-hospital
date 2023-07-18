@@ -55,3 +55,13 @@ CREATE TABLE visits(
   date_of_visit DATE,
   PRIMARY KEY(id)
 );
+
+CREATE INDEX visit_animal_id_idx  ON visits (animals_id DESC);
+
+/* add indexing for vets id querying*/
+
+CREATE INDEX visits_vets_id_idx ON visits(vets_id);
+
+/* add indexing for owners email querying*/
+
+CREATE INDEX owners_email_idx ON owners(email);
