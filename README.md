@@ -3,8 +3,9 @@
 <div align="center">
 
   <h3><b>🐕Animal Hospital🐈</b></h3>
-
+  <img src="./Screenshot from 2023-07-18 14-46-36.png">
 </div>
+
 
 
 <!-- TABLE OF CONTENTS -->
@@ -15,7 +16,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -52,20 +52,18 @@
 
 ### Key Features <a name="key-features"></a>
 
-- [ ] **[Schema to create a database table]**
-- [ ] **[Inserting data into the table]**
-- [ ] **[Querying the table for specific data]**
-- [ ] **[query and update animals table]**
-- [ ] **[query multiple tables]**
-- [ ] **[add "join table" for visits]**
-
+- [ ] **Schema to create a database table**
+- [ ] **Inserting data into the table**
+- [ ] **Querying the table for specific data**
+- [ ] **query and update animals table**
+- [ ] **query multiple tables**
+- [ ] **add "join table" for visits**
+- [ ] **database performance audit**
+- [ ] **add database schema diagram**
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
 
-## 🚀 Live Demo <a name="live-demo"></a>
-
-  - [coming soon]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -128,7 +126,7 @@ To run the project, execute the following command:
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Author1**
+👤 **Lincoln Gibson**
 
 - GitHub: [lincoln1883](https://github.com/lincoln1883)
 - Twitter: [lincolngibson7](https://twitter.com/lincolngibson7)
@@ -143,8 +141,7 @@ To run the project, execute the following command:
 
 
 
-- [ ] **[database performance audit]**
-- [ ] **[add database schema diagram]**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
