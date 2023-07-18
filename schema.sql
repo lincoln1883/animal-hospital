@@ -25,6 +25,9 @@ full_name CHAR(50),
 age integer,
 );
 
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
 CREATE TABLE species(
 id integer NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 name CHAR(50),
@@ -45,11 +48,20 @@ FOREIGN KEY (species_id) REFERENCES species(id) ,
 FOREIGN KEY (vets_id) REFERENCES vets(id),
 );
 
-CREATE TABLE visits (
-animals_id integer,
-vets_id integer,
-date_of_visit date,
-PRIMARY KEY (animals_id, vets_id),
-FOREIGN KEY (animals_id) REFERENCES animals(id),
-FOREIGN KEY (vets_id) REFERENCES vets(id)
+CREATE TABLE visits(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  animals_id INT REFERENCES animals(id),
+  vets_id INT REFERENCES vets(id),
+  date_of_visit DATE,
+  PRIMARY KEY(id)
 );
+
+CREATE INDEX visit_animal_id_idx  ON visits (animals_id DESC);
+
+/* add indexing for vets id querying*/
+
+CREATE INDEX visits_vets_id_idx ON visits(vets_id);
+
+/* add indexing for owners email querying*/
+
+CREATE INDEX owners_email_idx ON owners(email);
