@@ -175,10 +175,10 @@ I would like to thank my family and Microverse for allowing me to persue my drea
 
 ## ❓ FAQ <a name="faq"></a>
 
-- **[What is PostgreSQL? How is it pronounced? What is Postgres?]**
+- **What is PostgreSQL? How is it pronounced?**
   - PostgreSQL is pronounced Post-Gres-Q-L.
 
-- **[Who controls PostgreSQL?]**
+- **Who controls PostgreSQL?**
   - The project is directed by the community of developers and users, which anyone can join. All you need to do is subscribe to the mailing lists and participate in the discussions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
